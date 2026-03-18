@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_form_inherit_glebkosyrev" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.glebkosyrev</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Добавляем поле сотрудника после поля менеджера продаж -->
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="responsible_employee_id"/>
+            </xpath>
+
+            <!-- Добавляем new_field после поля сотрудника -->
+            <xpath expr="//field[@name='responsible_employee_id']" position="after">
+    		<field name="new_field" readonly="state == 'sent'" invisible="state == 'sale'"/>
+	    </xpath>
+
+        </field>
+    </record>
+</odoo>

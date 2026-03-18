@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_inherit_glebkosyrev" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//table[hasclass('o_has_total_table')]" position="before">
+            <div t-if="doc.new_field">
+                <strong>New Field: </strong>
+                <span t-out="doc.new_field"/>
+            </div>
+            <div t-else="">
+                <strong>Поле New Field пустое!!!</strong>
+            </div>
+        </xpath>
+    </template>
+</odoo>
